@@ -1,24 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import Movies from './components/Movies';
+import Pagination from './components/Pagination';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { Favourites } from './components/Favourites';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* <h1>Hello World</h1> */}
+      {/* <h2>Navbar</h2> */}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<>
+          <Banner />
+          <Movies />
+          {/* <Pagination /> */}
+        </>}>
+        </Route>
+        <Route path="/favourites" element=
+          {<Favourites/> }>
+
+        </Route>
+      </Routes>
+      {/* <h2>Banner</h2> */}
+      {/* <h2>Trending</h2> */}
+      {/* <h2>Pagination</h2> */}
+    </BrowserRouter>
   );
 }
 
